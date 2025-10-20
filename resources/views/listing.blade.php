@@ -1,1 +1,1 @@
-<h1>{{ $listing["title"] }}</h1>
+<h1>{{ $listing["title"] }}</h1> 
