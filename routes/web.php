@@ -7,12 +7,12 @@ use Illuminate\Support\Facades\View;
 
 Route::get("/", function () {
     return view("listings", [
-        'listings' => Listing::getAll(),
+        'listings' => Listing::get(),
     ]);
 });
 
 Route::get("/listings/{id}", function ($id) {
     return View("listing", [
-        "listing" => Listing::get($id),
+        "listing" => Listing::find($id),
     ]);
 });
