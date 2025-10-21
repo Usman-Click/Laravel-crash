@@ -1,6 +1,10 @@
 @extends('layout')
 
-@section('content')    
+@section('content') 
+
+ @include('partials._hero')
+@include('partials._search')
+
 @if (count($listings) <= 0)
     <h4>No listing found!</h4>
 @else
@@ -15,10 +19,10 @@
                         />
                         <div>
                             <h3 class="text-2xl">
-                                <a href="show.html">Backend Laravel Dev</a>
+                                <a href="listings/{{$listing->id}}">{{$listing->title}}</a>
                             </h3>
                             <div class="text-xl font-bold mb-4">
-                                Skynet Systems
+                                {{$listing->company}}
                             </div>
                             <ul class="flex">
                                 <li

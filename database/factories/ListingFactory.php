@@ -20,7 +20,7 @@ class ListingFactory extends Factory
             'title' => fake()->jobTitle(),
             "mail" => fake()->companyEmail(),
             "website" => fake()->url(),
-            "company" => fake()->companyEmail(),
+            "company" => fake()->company(),
             "tags" => "PHP,Lravel,Web",
             "description" => fake()->paragraph(5)
         ];
