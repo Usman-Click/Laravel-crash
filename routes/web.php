@@ -12,7 +12,12 @@ Route::get("/", function () {
 });
 
 Route::get("/listings/{id}", function ($id) {
-    return View("listing", [
-        "listing" => Listing::find($id),
-    ]);
+    $listing = Listing::find($id);
+    if ($listing) {
+        return View("listing", [
+            "listing" => $listing,
+        ]);
+    } else {
+        abort("404");
+    }
 });
