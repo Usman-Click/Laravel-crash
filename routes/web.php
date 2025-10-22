@@ -1,23 +1,14 @@
 <?php
 
-namespace App\Models;
-
+use App\Http\Controllers\ListingController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\View;
 
-Route::get("/", function () {
-    return view("listings", [
-        'listings' => Listing::get(),
-    ]);
-});
+Route::get(
+    "/",
+    [ListingController::class, "index"]
+);
 
-Route::get("/listings/{id}", function ($id) {
-    $listing = Listing::find($id);
-    if ($listing) {
-        return View("listing", [
-            "listing" => $listing,
-        ]);
-    } else {
-        abort("404");
-    }
-});
+Route::get(
+    "/listings/{id}",
+    [ListingController::class, "show"]
+);
