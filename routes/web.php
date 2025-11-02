@@ -14,8 +14,10 @@ Route::get(
 );
 
 
-
-
+Route::post(
+    "/listings",
+    [ListingController::class, "store"]
+);
 
 
 
