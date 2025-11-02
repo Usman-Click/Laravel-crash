@@ -9,6 +9,17 @@ Route::get(
 );
 
 Route::get(
+    "/listings/create",
+    [ListingController::class, "create"]
+);
+
+
+
+
+
+
+
+Route::get(
     "/listings/{id}",
     [ListingController::class, "show"]
 );

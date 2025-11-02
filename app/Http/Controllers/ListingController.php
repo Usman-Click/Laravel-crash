@@ -28,4 +28,9 @@ class ListingController extends Controller
             abort("404");
         }
     }
+
+    // Create a listing
+    public function create(){
+        return View("listings.create");
+    }
 }
