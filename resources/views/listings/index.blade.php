@@ -1,4 +1,4 @@
-<x-layout>
+<x-layouts.home>
 
     @include('partials._hero')
     @include('partials._search')
@@ -12,4 +12,4 @@
             @endforeach
     @endif
 
-</x-layout>
+</x-layouts.home>
