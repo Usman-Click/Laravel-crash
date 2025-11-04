@@ -10,6 +10,8 @@
             @foreach ($listings as $listing)
                 <x-listing-card :listing="$listing" />
             @endforeach
+        </div>
     @endif
 
+    <div class="mt-6">{{$listings->links()}}</div>
 </x-layouts.home>
