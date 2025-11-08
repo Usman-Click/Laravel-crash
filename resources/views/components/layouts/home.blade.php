@@ -36,7 +36,7 @@
 
                 </li>
                 <li>
-                    <a href="/user/login" class="hover:text-laravel"><i class="fa-solid fas fa-pen"></i>
+                    <a href="/listings/manage" class="hover:text-laravel"><i class="fa-solid fas fa-pen"></i>
                         Manage listings</a>
                 </li>
                 <li>

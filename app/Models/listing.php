@@ -20,10 +20,16 @@ class Listing extends Model
             $query->where('tags', 'like', '%' . $filters['tag'] . '%');
         }
 
-            // check if 'search' != null ie: the filterting tag in the params
+        // check if 'search' != null ie: the filterting tag in the params
         if ($filters['search'] ?? false) {
             // filter it with data alike in 'Tags' col in the DB
             $query->where('tags', 'like', '%' . $filters['search'] . '%');
         }
+    }
+
+    // Rel to user
+    public function user()
+    {
+       return $this->belongsTo(User::class, 'user_id');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {
@@ -52,8 +53,19 @@ class ListingController extends Controller
             $formFields['logo'] = $req->file('logo')->store('logos', 'public');
         }
 
+        $formFields['user_id'] = Auth::user()->id;
+
         Listing::create($formFields);
 
         return redirect('/')->with('success', 'Listing created successfully');
+    }
+
+    
+    public function manage()
+    {
+        return view('listings.manage', [
+            'listings' => Auth::user()->listings,
+
+        ]);
     }
 }

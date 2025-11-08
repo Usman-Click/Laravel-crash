@@ -21,6 +21,12 @@ Route::post(
     [ListingController::class, "store"]
 );
 
+// Manage authenticated user listings
+Route::get(
+    "/listings/manage",
+    [ListingController::class, "manage"]
+);
+
 
 Route::get(
     "/listings/{id}",
@@ -39,22 +45,24 @@ Route::get(
 // Store user data
 Route::post(
     '/users',
-    [UserController::class, 'store']);
+    [UserController::class, 'store']
+);
 
-
-    // Log user out
+// Log user out
 Route::post(
     '/users/logout',
-    [UserController::class, 'destroy']);
+    [UserController::class, 'destroy']
+);
 
 
-  // Show login form  
+// Show login form  
 Route::get(
     '/users/login',
-    [UserController::class, 'login']);
+    [UserController::class, 'login']
+);
 
-    // auth user
-    Route::post(
+// auth user
+Route::post(
     '/users/auth',
-    [UserController::class, 'auth']);
-
+    [UserController::class, 'auth']
+);
