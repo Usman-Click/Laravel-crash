@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get(
@@ -20,8 +21,23 @@ Route::post(
 );
 
 
-
 Route::get(
     "/listings/{id}",
     [ListingController::class, "show"]
 );
+
+
+Route::get(
+    "/user/create",
+    [UserController::class, "create"]
+);
+
+Route::post(
+    '/users',
+    [UserController::class, 'store']);
+
+    
+Route::post(
+    '/users/logout',
+    [UserController::class, 'destroy']);
+
