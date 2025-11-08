@@ -21,7 +21,7 @@ class ListingFactory extends Factory
             "mail" => fake()->companyEmail(),
             "website" => fake()->url(),
             "company" => fake()->company(),
-            "tags" => "PHP,Lravel,Web",
+            "tags" => "PHP Lravel Web",
             "description" => fake()->paragraph(5)
         ];
     }

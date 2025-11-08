@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use Illuminate\Routing\Controller;
 
 class ListingController extends Controller
 {
@@ -39,6 +38,7 @@ class ListingController extends Controller
     // Store listing
     public  function store(Request $req)
     {
+
         $formFields = $req->validate([
             'title' => 'required',
             "mail" => ['required', 'email'],
@@ -48,8 +48,12 @@ class ListingController extends Controller
             "description" => 'required',
         ]);
 
+        if ($req->hasFile('logo')) {
+            $formFields['logo'] = $req->file('logo')->store('logos', 'public');
+        }
+
         Listing::create($formFields);
 
-        return redirect('/')->with("success", 'Listing created sucessfully');
+        return redirect('/')->with('success', 'Listing created successfully');
     }
 }
