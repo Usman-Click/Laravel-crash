@@ -4,6 +4,7 @@ use App\Http\Controllers\ListingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+// Listtings
 Route::get(
     "/",
     [ListingController::class, "index"]
@@ -27,17 +28,33 @@ Route::get(
 );
 
 
+// User
+
+// Show create user form
 Route::get(
-    "/user/create",
+    "/users/create",
     [UserController::class, "create"]
 );
 
+// Store user data
 Route::post(
     '/users',
     [UserController::class, 'store']);
 
-    
+
+    // Log user out
 Route::post(
     '/users/logout',
     [UserController::class, 'destroy']);
+
+
+  // Show login form  
+Route::get(
+    '/users/login',
+    [UserController::class, 'login']);
+
+    // auth user
+    Route::post(
+    '/users/auth',
+    [UserController::class, 'auth']);
 

@@ -40,19 +40,20 @@
                         Manage listings</a>
                 </li>
                 <li>
-                   <form action="/users/logout" method="POST">
+                   <form action="/users/logout" method="POST" class="hover:text-laravel">
                     @csrf
-                    <input type="submit" value="Logout">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    <input type="submit"  value="Logout">
                 </form>
                 </li>
             </ul>
         @else
             <ul class="flex space-x-6 mr-6 text-lg">
                 <li>
-                    <a href="/user/create" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> Register</a>
+                    <a href="/users/create" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> Register</a>
                 </li>
                 <li>
-                    <a href="/user/login" class="hover:text-laravel"><i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    <a href="/users/login" class="hover:text-laravel"><i class="fa-solid fa-arrow-right-to-bracket"></i>
                         Login</a>
                 </li>
             </ul>
