@@ -60,12 +60,48 @@ class ListingController extends Controller
         return redirect('/')->with('success', 'Listing created successfully');
     }
 
-    
+
     public function manage()
     {
         return view('listings.manage', [
             'listings' => Auth::user()->listings,
 
         ]);
+    }
+
+
+    public function edit($id)
+    {
+        $listing = Listing::find($id);
+        if ($listing) {
+            return view('listings.edit', [
+                'listing' => $listing,
+
+            ]);
+        } else {
+            abort("404");
+        }
+    }
+
+    public function update(Request $req, $id)
+    {
+        $formFields = $req->validate([
+            'title' => 'required',
+            "mail" => ['required', 'email'],
+            "website" => 'required',
+            "company" => 'required',
+            "tags" => 'required',
+            "description" => 'required',
+        ]);
+
+        if ($req->hasFile('logo')) {
+            $formFields['logo'] = $req->file('logo')->store('logos', 'public');
+        }
+
+        $listing = Listing::find($id);
+
+        $listing->update($formFields);
+
+        return redirect('/')->with('success', 'Listing updated successfully');
     }
 }

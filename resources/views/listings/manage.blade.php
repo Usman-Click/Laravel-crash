@@ -16,7 +16,7 @@
                         </a>
                     </td>
                     <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                        <a href="/listings/edit" class="text-blue-400 px-6 py-2 rounded-xl"><i
+                        <a href="/listings/edit/{{$listing->id}}" class="text-blue-400 px-6 py-2 rounded-xl"><i
                                 class="fa-solid fa-pen-to-square"></i>
                             Edit</a>
                     </td>

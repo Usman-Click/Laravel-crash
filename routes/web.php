@@ -29,6 +29,18 @@ Route::get(
     [ListingController::class, "manage"]
 )->middleware('auth');
 
+// show edit form
+Route::get(
+    "/listings/edit/{id}",
+    [ListingController::class, "edit"]
+)->middleware('auth');
+
+// update liting
+Route::put(
+    "/listings/{id}",
+    [ListingController::class, "update"]
+)->middleware('auth');
+
 // show a listings
 Route::get(
     "/listings/{id}",
