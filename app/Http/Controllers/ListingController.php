@@ -104,4 +104,12 @@ class ListingController extends Controller
 
         return redirect('/')->with('success', 'Listing updated successfully');
     }
+
+    public function destroy($id)
+    {
+        $listing = Listing::find($id);
+        $listing->delete();
+
+        return redirect('/')->with('success', 'Listing deleted successfully');
+    }
 }

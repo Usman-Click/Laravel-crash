@@ -41,6 +41,12 @@ Route::put(
     [ListingController::class, "update"]
 )->middleware('auth');
 
+// update liting
+Route::delete(
+    "/listings/{id}",
+    [ListingController::class, "destroy"]
+)->middleware('auth');
+
 // show a listings
 Route::get(
     "/listings/{id}",
